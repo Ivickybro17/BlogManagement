@@ -15,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name= "users")
-public class users {
+public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -33,11 +33,4 @@ public class users {
     protected void onCreate() {
         created_at = LocalDateTime.now();
     }
-
-    @OneToMany(mappedBy = "users")
-    private List<posts> posts;
-
-    @OneToMany(mappedBy="users")
-    private List<follows> follows;
-
 }

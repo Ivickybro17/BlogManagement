@@ -16,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name="posts")
-public class posts {
+public class Posts {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -35,14 +35,19 @@ public class posts {
     @ManyToOne
     @NotNull
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
-    private users users;
+    private Users users;
 
     @OneToMany(mappedBy = "posts")
-    private List<comments> comments;
+    private List<Comments> comments;
 
     private String content;
 
     private String status;
 
     private LocalDateTime created_at;
+
+    @PrePersist
+    protected void onCreate() {
+        created_at = LocalDateTime.now();
+    }
 }

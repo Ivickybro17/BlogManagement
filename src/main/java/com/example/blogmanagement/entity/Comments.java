@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @Entity
 @Table(name = "comments")
-public class comments {
+public class Comments {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -24,5 +24,5 @@ public class comments {
     @ManyToOne
     @NotNull
     @JoinColumn(name = "posts_id", referencedColumnName = "id", nullable = false)
-    private posts posts;
+    private Posts posts;
 }

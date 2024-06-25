@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @Entity
 @Table(name = "follows")
-public class follows {
+public class Follows {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +24,7 @@ public class follows {
     @ManyToOne
     @NotNull
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
-    private users users;
+    private Users users;
 
     private Integer follower;
 
